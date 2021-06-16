@@ -29,5 +29,5 @@ for i in range(1,10):
 
     print (template%(i, i-1, i, i, i) )
     
-    with open("./.github/.workflows/workflow-chain-%i.yml"%i, 'w') as f:
+    with open("./.github/workflows/workflow-chain-%i.yml"%i, 'w') as f:
         f.write(template%(i, i-1, i, i, i))

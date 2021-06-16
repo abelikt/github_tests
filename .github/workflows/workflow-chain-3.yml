@@ -1,0 +1,23 @@
+name: workflow-chain-3
+
+on:
+
+  workflow_dispatch:
+    branches: [main]
+
+  workflow_run:
+    workflows: ["workflow-chain-2"]
+    branches: [main]
+    types:
+      - completed
+
+jobs:
+
+  workflow-chain-3:
+    runs-on: Ubuntu-20.04
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+
+    - name: workflow-chain-3
+      run:  echo workflow-chain-3

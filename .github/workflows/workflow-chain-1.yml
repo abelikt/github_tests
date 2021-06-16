@@ -1,0 +1,23 @@
+name: workflow-chain-1
+
+on:
+
+  workflow_dispatch:
+    branches: [main]
+
+  workflow_run:
+    workflows: ["workflow-chain-0"]
+    branches: [main]
+    types:
+      - completed
+
+jobs:
+
+  workflow-chain-1:
+    runs-on: Ubuntu-20.04
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+
+    - name: workflow-chain-1
+      run:  echo workflow-chain-1
