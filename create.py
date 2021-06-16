@@ -7,7 +7,7 @@ on:
     branches: [main]
 
   workflow_run:
-    workflows: [workflow-chain-%i]
+    workflows: ["workflow-chain-%i"]
     branches: [main]
     types:
       - completed
