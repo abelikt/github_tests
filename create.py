@@ -2,6 +2,10 @@
 template = """name: workflow-chain-%i
 
 on:
+
+  workflow_dispatch:
+    branches: [main]
+
   workflow_run:
     workflows: [workflow-chain-%i]
     branches: [main]
